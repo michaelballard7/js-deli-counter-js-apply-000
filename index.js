@@ -1,5 +1,18 @@
 var katzDeli = [ ];
 
+var ticket = 0
+
+function takeANumber(line){
+  ticket += 1
+  line.push(ticket)
+  return `Welcome you're ticket number #${ticket}`
+}
+
+// takeANumber(katzDeli) => 'Welcome you're ticket number #1' [1]
+// takeANumber(katzDeli) => 'Welcome you're ticket number #2' [1,2]
+// nowServing(katzDeli) => 'Currently serving #1' [2]
+// takeANumber(katzDeli) => 'Welcome you're ticket number #3' [2,3]
+
 function takeANumber(line, person){
   line.push(person)
   return `Welcome, ${person}. You are number ${line.length} in line.`
@@ -18,6 +31,7 @@ function currentLine(line){
     return "The line is currently empty."
   } else {
     var str = "The line is currently: "
+  
     for(var element = 0; element < line.length; element++){
       str += `${element+1}.` + ` ${line[element]}, `
     }
